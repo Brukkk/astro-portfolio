@@ -17,6 +17,6 @@ export default function ThemeToggle() {
  }, [theme]);
 
  return (
-   <button onClick={handleClick}>{theme === "light" ? "🌙" : "🌞"}</button>
+   <button className="sm:pr-3" onClick={handleClick}>{theme === "light" ? "🌙" : "🌞"}</button>
  );
 }
