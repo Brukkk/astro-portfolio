@@ -1,12 +1,22 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro"
+import { HeroSection } from "@components/HeroSection";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Portfolio">
-	<section id="home" class=" pt-32 h-[100vh] bg-gradient-to-b from-indigo-300 to-slate-300">
-		<h1 class=" dark:text-white">My astro page</h1>
+	<section id="home" class="container mx-auto h-[100vh] scroll-m-24 ">
+		<HeroSection transition:persist client:only="react" />
 	</section>
-	<section id="about" class="h-[50vh] bg-gradient-to-b from-slate-300 to-gray-300">
-		<h1 class=" dark:text-white">About</h1>
+	<section id="proyects" class="container mx-auto h-[100vh] scroll-m-4">
+		<h1>Proyects</h1>
+	</section>
+	<section id="experience" class="container mx-auto h-[100vh] scroll-m-4">
+		<h1>Experience</h1>
+	</section>
+	<section id="about" class="container mx-auto h-[100vh] scroll-m-4">
+		<h1>About</h1>
+	</section>
+	<section id="contact" class="container mx-auto h-[100vh] scroll-m-4">
+		<h1>Contact</h1>
 	</section>
 </MainLayout>
