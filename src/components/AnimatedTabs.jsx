@@ -35,14 +35,14 @@ export default function AnimatedTabs() {
       variants={nav}
       initial="hidden"
       animate="visible"
-      className="p-2 flex gap-3 flex-wrap justify-center bg-black/20 backdrop-blur-lg backdrop-saturate-150 rounded-xl">
+      className="p-2 flex gap-3 flex-wrap justify-center bg-white/50 dark:bg-black/30 backdrop-blur-lg backdrop-saturate-[180%] rounded-xl">
       {tabs.map((tab) => (
         <a
           key={tab.id}
           href={tab.id}
           onClick={() => setActiveTab(tab.id)}
           className={`${
-            activeTab === tab.id ? "text-white" : "hover:text-slate-100 dark:hover:text-slate-400"
+            activeTab === tab.id ? "text-white" : " hover:text-slate-400"
           } relative rounded-xl px-3 py-1.5 text-sm font-medium text-black dark:text-white   transition focus-visible:outline-2`}
           style={{
             WebkitTapHighlightColor: "transparent",

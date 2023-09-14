@@ -38,7 +38,7 @@ const AnimatedTextCharacter = ({ text }) => {
   };
 
   return (
-    <motion.div
+    <motion.p
       style={{ overflow: "hidden", display: "flex", fontSize: "2rem" }}
       variants={container}
       initial="hidden"
@@ -49,7 +49,7 @@ const AnimatedTextCharacter = ({ text }) => {
           {letter === " " ? "\u00A0" : letter}
         </motion.span>
       ))}
-    </motion.div>
+    </motion.p>
   );
 };
 
