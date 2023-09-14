@@ -14,14 +14,24 @@ const ProfileCard = () => {
     return (
         <figure
             onMouseMove={handleMouseMove}
-            className="group w-56 h-auto mx-auto relative rounded-xl border border-white/10 shadow-2xl" >    
+            className="group w-72 h-auto mx-auto relative rounded-xl border border-white/10 shadow-xl" >    
                 <motion.div 
                     style={{
                         background: useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px,#0ea5e966, transparent 80%)`
                     }}
                     className="pointer-events-none absolute -inset-px rounded-xl transition duration-300 opacity-0 group-hover:opacity-100 " 
                 />
-                <img src={Bruk.src} alt="Bruno Torrabadella picture" className="relative w-full h-full rounded-xl " />
+                <motion.img
+                    initial={{ 
+                        opacity: 0.3,
+                    }}
+                    animate={{
+                        opacity: 1,
+                    }}
+                    transition={{
+                        duration: 0.5,
+                    }}
+                    src={Bruk.src} alt="Bruno Torrabadella picture" className="relative w-full h-full rounded-xl " />
         </figure>
     )
 }
