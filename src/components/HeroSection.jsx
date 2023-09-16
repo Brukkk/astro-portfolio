@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import AnimatedTextCharacter from './AnimatedText';
 import ProfileCard from './ProfileCard';
+import TextCarousel from './TextCarousel';
 
 const slideLeft = {
     hidden: {
@@ -35,13 +36,8 @@ export const HeroSection = () => {
             animate="visible"
             className="tracking-widest">Hi there 👋
         </motion.p>
-        <motion.p 
-            variants={slideTop}
-            initial="hidden"
-            animate="visible"
-            className="text-4xl">Bruno Torrabadella
-        </motion.p>
-		<AnimatedTextCharacter text={"Frontend Engineer"} />
+        <TextCarousel />
+		<AnimatedTextCharacter text={"Bruno Damián Torrabadella"} />
         <ProfileCard />
     </div>
   )
