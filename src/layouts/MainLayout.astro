@@ -1,19 +1,22 @@
 ---
-import Header from "@components/Header.astro"
-const { title } = Astro.props
-
+import Header from "@components/Header.astro";
+const { title } = Astro.props;
 ---
+
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="p-4 sm:pt-0 bg-gradient-to-br from-slate-300 dark:from-slate-800 to-slate-200 dark:to-slate-700 dark:text-white">
+  <body
+    class="p-4 sm:pt-0 bg-gradient-to-br from-slate-300 dark:from-slate-800 to-slate-200 dark:to-slate-700 dark:text-white"
+  >
     <Header />
-    <slot /> <!-- your content is injected here -->
+    <slot />
+    <!-- your content is injected here -->
   </body>
 </html>
 <script is:inline>
@@ -34,3 +37,72 @@ const { title } = Astro.props
   }
   window.localStorage.setItem("theme", theme);
 </script>
+<style is:global>
+  :root {
+    --expo-in: linear(
+      0 0%,
+      0.0085 31.26%,
+      0.0167 40.94%,
+      0.0289 48.86%,
+      0.0471 55.92%,
+      0.0717 61.99%,
+      0.1038 67.32%,
+      0.1443 72.07%,
+      0.1989 76.7%,
+      0.2659 80.89%,
+      0.3465 84.71%,
+      0.4419 88.22%,
+      0.554 91.48%,
+      0.6835 94.51%,
+      0.8316 97.34%,
+      1 100%
+    );
+    --expo-out: linear(
+      0 0%,
+      0.1684 2.66%,
+      0.3165 5.49%,
+      0.446 8.52%,
+      0.5581 11.78%,
+      0.6535 15.29%,
+      0.7341 19.11%,
+      0.8011 23.3%,
+      0.8557 27.93%,
+      0.8962 32.68%,
+      0.9283 38.01%,
+      0.9529 44.08%,
+      0.9711 51.14%,
+      0.9833 59.06%,
+      0.9915 68.74%,
+      1 100%
+    );
+  }
+  ::view-transition-group(root) {
+    animation-duration: 1.2s;
+    animation-timing-function: var(--expo-out);
+  }
+
+  ::view-transition-new(root) {
+    animation-name: reveal-divider;
+  }
+
+  ::view-transition-old(root),
+  .dark::view-transition-old(root) {
+    animation: none;
+    z-index: -1;
+  }
+  .dark::view-transition-new(root) {
+    animation-name: reveal-divider;
+  }
+
+  @keyframes reveal-divider {
+    0% {
+      clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    }
+    50% {
+      clip-path: polygon(0 99%, 0% 100%, 1% 100%, 100% 1%, 100% 0%, 99% 0);
+    }
+    100% {
+      clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 100%, 100% 0, 0 0);
+    }
+  }
+</style>

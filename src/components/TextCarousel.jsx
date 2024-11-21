@@ -1,20 +1,19 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from "framer-motion";
 
-const text = 'Frontend Engineer - UX Engineer - UI Developer - ';
-
+const text = "Frontend Engineer - UX Engineer - UI Developer - ";
 
 const textVariants = {
   initial: {
-    x: '0%',
+    x: "0%",
   },
   animate: {
-    x: '-100%',
+    x: "-100%",
     transition: {
       x: {
-        duration: 12,
+        duration: 24,
         repeat: Infinity,
-        repeatType: 'loop',
-        ease: "linear"
+        repeatType: "loop",
+        ease: "linear",
       },
     },
   },
@@ -29,9 +28,9 @@ const TextCarousel = () => {
           variants={textVariants}
           initial="initial"
           animate="animate"
-          className="inline-block whitespace-pre text-2xl sm:text-6xl font-bold"
+          className="inline-block whitespace-pre text-5xl sm:text-9xl  font-bold"
         >
-          {text.toUpperCase()} 
+          {text.toUpperCase()}
         </motion.span>
         {/*
         Depending on the font size for larger screens, there will be a need to implement 1 of the 2 options:
@@ -39,20 +38,17 @@ const TextCarousel = () => {
             - Media queries to repeat span in case of not filling the block width
         */}
         <motion.span
-            key={2}
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            className="inline-block whitespace-pre text-2xl sm:text-6xl  font-bold "
-            >
-            {text.toUpperCase()}
+          key={2}
+          variants={textVariants}
+          initial="initial"
+          animate="animate"
+          className="inline-block whitespace-pre text-5xl sm:text-9xl font-bold "
+        >
+          {text.toUpperCase()}
         </motion.span>
-        
       </AnimatePresence>
     </div>
   );
 };
 
 export default TextCarousel;
-
-
