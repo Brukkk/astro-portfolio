@@ -1,4 +1,5 @@
 ---
+import ComparisonView from "@components/ComparisonView";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
@@ -25,6 +26,7 @@ import MainLayout from "../layouts/MainLayout.astro";
   </section>
   <section id="about" class="container mx-auto h-[100vh]">
     <h1>About</h1>
+    <ComparisonView client:visible />
   </section>
   <section id="contact" class="container mx-auto h-[100vh]">
     <h1>Contact</h1>
