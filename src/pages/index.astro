@@ -1,22 +1,68 @@
 ---
-import { HeroSection } from "@components/HeroSection";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Portfolio">
-	<section id="home" class="container mx-auto h-[100vh] scroll-m-24 ">
-		<HeroSection transition:persist client:only="react" />
-	</section>
-	<section id="proyects" class="container mx-auto h-[100vh] scroll-m-4">
-		<h1>Proyects</h1>
-	</section>
-	<section id="experience" class="container mx-auto h-[100vh] scroll-m-4">
-		<h1>Experience</h1>
-	</section>
-	<section id="about" class="container mx-auto h-[100vh] scroll-m-4">
-		<h1>About</h1>
-	</section>
-	<section id="contact" class="container mx-auto h-[100vh] scroll-m-4">
-		<h1>Contact</h1>
-	</section>
+  <!-- <section id="home" class="container mx-auto h-[100vh] scroll-m-24">
+    <HeroSection transition:persist client:only="react" />
+  </section> -->
+
+  <section
+    id="hero"
+    class="bg-red-200 w-full flex justify-center items-center fixed top-0"
+  >
+    <h1>Bruk</h1>
+  </section>
+  <section id="wrapper" class="mx-auto h-[600vh] overflow-visible bg-slate-600">
+    <div
+      id="sticky"
+      class="sticky top-0 border border-red-300 h-screen w-screen overflow-x-clip"
+    >
+      <div id="horizontal-strip" class="w-[250vmax] h-screen text-[20rem]">
+        HELLO WORLD
+      </div>
+    </div>
+  </section>
+  <section id="about" class="container mx-auto h-[100vh]">
+    <h1>About</h1>
+  </section>
+  <section id="contact" class="container mx-auto h-[100vh]">
+    <h1>Contact</h1>
+  </section>
 </MainLayout>
+<style>
+  #hero {
+    animation: heroToNav linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0px 90vh;
+  }
+
+  @keyframes heroToNav {
+    from {
+      height: 100vh;
+      font-size: 6rem;
+    }
+    to {
+      height: 10vh;
+      font-size: 1.5rem;
+      background-color: transparent;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  #wrapper {
+    view-timeline-name: --horizontal-section;
+    view-timeline-axis: block;
+  }
+  @keyframes move {
+    to {
+      transform: translateX(calc(-100% + 100vw));
+    }
+  }
+
+  #horizontal-strip {
+    animation: move linear forwards;
+    animation-timeline: --horizontal-section;
+    animation-range: contain 0% contain 100%;
+  }
+</style>
